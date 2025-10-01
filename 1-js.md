@@ -4,20 +4,20 @@
 
 The `typeof` operator returns the type of an expression as a string:
 
-   > typeof true
-   'boolean'
-   > typeof "hello"
-   'string'
-   > typeof 4.5
-   'number'
-   > typeof NaN
-   'number'
-   > typeof Infinity
-   'number'
-   > typeof undefined
-   'undefined'
-   > typeof null
-   'object'
+    > typeof true
+    'boolean'
+    > typeof "hello"
+    'string'
+    > typeof 4.5
+    'number'
+    > typeof NaN
+    'number'
+    > typeof Infinity
+    'number'
+    > typeof undefined
+    'undefined'
+    > typeof null
+    'object'
 
 Strings can be compared lexicographically (capital letters come first):
 
