@@ -58,3 +58,19 @@ The `??` operator works similar to `||`, but only returns the right-hand value i
     > null ?? 'fallback'
     'fallback'
 
+## Program Structure
+
+Parse a number and check if it worked:
+
+    > let n = Number('123')
+    > Number.isNaN(n)
+    false
+    > let s = Number('abc')
+    > Number.isNaN(s)
+    true
+
+Use exponentiation:
+
+    > 2 ** 3
+    8
+
