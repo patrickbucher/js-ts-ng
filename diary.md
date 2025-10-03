@@ -1,3 +1,7 @@
+# Day 3 (Fr, 2025-10-03)
+
+I quickly read chapter 3, for which I didn't take any notes at all.
+
 # Day 2 (Th, 2025-10-02)
 
 Very little time today, so I just went quickly through chapter 2, for which I only took very few notes.

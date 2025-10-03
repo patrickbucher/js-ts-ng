@@ -74,3 +74,7 @@ Use exponentiation:
     > 2 ** 3
     8
 
+## Functions
+
+-
+
