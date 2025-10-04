@@ -1,3 +1,7 @@
+# Day 4 (Sa, 2025-10-04)
+
+I worked through chapter 4 and took quite some notes.
+
 # Day 3 (Fr, 2025-10-03)
 
 I quickly read chapter 3, for which I didn't take any notes at all.
