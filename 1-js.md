@@ -202,3 +202,26 @@ If it's not certain that a property exists on an object, use the `?.` notation t
 
 Use `JSON.stringify` to turn JavaScript values into JSON, and `JSON.parse` for the reverse conversion.
 
+## Higher-Order Functions
+
+Use `codePointAt` to get the unicode code point from a string:
+
+    > 'Достоевский'.codePointAt(3)
+    1090
+
+A `for`/`of` loop over a string returns characters:
+
+    > let name = 'Достоевский';
+    > for (const c of name) { console.log(c); }
+    Д
+    о
+    с
+    т
+    о
+    е
+    в
+    с
+    к
+    и
+    й
+

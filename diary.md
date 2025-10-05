@@ -1,3 +1,7 @@
+# Day 5 (Su, 2025-10-05)
+
+I just skimmed chapter 5, of which I took some notes on unicode code points. I probably should have picked _Secrets of the JavaScript Ninja_ (Second Edition) for this exercise. But this at least will leave me more time for actual programming. I really should implement both _Reversi_ and _Spot_ in JavaScript.
+
 # Day 4 (Sa, 2025-10-04)
 
 I worked through chapter 4 and took quite some notes.
