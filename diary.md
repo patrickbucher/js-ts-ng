@@ -2,6 +2,8 @@
 
 I just skimmed chapter 5, of which I took some notes on unicode code points. I probably should have picked _Secrets of the JavaScript Ninja_ (Second Edition) for this exercise. But this at least will leave me more time for actual programming. I really should implement both _Reversi_ and _Spot_ in JavaScript.
 
+I just looked up Deno again, and it just seems to be the perfect fit for me: It has a small test library and native TypeScript support. So instead of dealing with Node.js and NPM, I can just stick to Deno. It also supports ECMAScript modules, which is always a hassle to deal with when working with TypeScript and Node.js. So Deno it will be, until I look into Angular.
+
 # Day 4 (Sa, 2025-10-04)
 
 I worked through chapter 4 and took quite some notes.
