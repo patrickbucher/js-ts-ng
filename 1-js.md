@@ -225,3 +225,185 @@ A `for`/`of` loop over a string returns characters:
     и
     й
 
+## The Secret Life of Objects
+
+For functions defined using the `function` keyword or as methods, `this` refers to the surrounding object literal. However, for arrow functions, `this` is not bound:
+
+```javascript
+let person = {
+  name: "Joe Doe",
+  introduce: function () {
+    return `Hello, my name is ${this.name}!`;
+  },
+  complain(about) {
+    return `I, ${this.name}, don't like ${about}!`;
+  },
+  greet: (whom) => {
+    return `Greetings, to ${whom} from ${this.name}!`;
+  },
+};
+
+console.log(person.introduce()); // ok
+console.log(person.complain("Dane Jone")); // ok
+console.log(person.greet("Jane Done")); // error: Cannot read properties of undefined (reading 'name')
+```
+
+Use `Object.create` to create an object with a specific prototype:
+
+```javascript
+let protoPerson = {
+  introduce() {
+    return `Hello, my name is ${this.name}!`;
+  },
+};
+
+let alice = Object.create(protoPerson);
+let bob = Object.create(protoPerson);
+alice.name = "Alice";
+bob.name = "Bob";
+console.log(alice.introduce());
+console.log(bob.introduce());
+```
+
+Since 2015, JavaScript also supports classes:
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  introduce() {
+    return `Hello, my name is ${this.name}!`;
+  }
+}
+
+let charles = new Person("Charles");
+let danielle = new Person("Danielle");
+console.log(charles.introduce());
+console.log(danielle.introduce());
+```
+
+Private properties and methods are prefixed with an `#`:
+
+```javascript
+class Athlete {
+  #bmi;
+  constructor(name, height, weight) {
+    this.name = name;
+    this.height = height;
+    this.weight = weight;
+    this.#bmi = this.#calcBMI();
+  }
+  #calcBMI() {
+    return this.weight / this.height ** 2;
+  }
+  describe() {
+    let rating;
+    if (this.#bmi > 25) {
+      rating = "overweight";
+    } else if (this.#bmi > 20) {
+      rating = "normal weight";
+    } else {
+      rating = "underweight";
+    }
+    return `${this.name} is ${this.height}m tall and ${this.weight}kg heavy (i.e. ${rating}).`;
+  }
+}
+
+let patrick = new Athlete("Patrick", 1.88, 78.0);
+console.log(patrick.describe());
+```
+
+Use `Map` and its methods `has`, `get`, `set` to manage key-value pairs. To use an object like a map, access its _own_ properties using `Object.keys`.
+
+Prefix a method with `get` and `set` to control access to a property with the method's name, and `static` to declare methods to be accessed on the class rather than on its instances:
+
+```javascript
+class Weight {
+  kilogramsInPounds = 2.20462262;
+  constructor(kilograms) {
+    this.kilograms = kilograms;
+  }
+  get pounds() {
+    return this.kilograms * this.kilogramsInPounds;
+  }
+  set pounds(pounds) {
+    this.kilograms = pounds / this.kilogramsInPounds;
+  }
+  static fromPounds(lbs) {
+    return new Weight(lbs / kilogramsInPounds);
+  }
+}
+
+let weight = new Weight(78);
+console.log(weight.pounds);
+weight.pounds = weight.pounds + 10;
+console.log(weight.kilograms);
+```
+
+An _iterable_ is a class having a `[Symbol.iterator]` method; an _iteartor_ is a class having a `next` method that returns either `{ done: true }` if the iteration is finished, or `{ value, done: false }` if there are still values to be expected. A class can both be an _iterable_ and an _iterator_:
+
+```javascript
+class FibonacciIterator {
+  constructor(max) {
+    this.max = max;
+    this.i = 0;
+    this.n0 = 1;
+    this.n1 = 1;
+  }
+  next() {
+    let value;
+    if (this.i == 0 || this.i == 1) {
+      value = 1;
+    } else {
+      value = this.n0 + this.n1;
+    }
+    if (value > this.max) {
+      return { done: true };
+    }
+    this.i++;
+    this.n0 = this.n1;
+    this.n1 = value;
+    return { value: value, done: false };
+  }
+  [Symbol.iterator]() {
+    return this;
+  }
+}
+
+let fib = new FibonacciIterator(10);
+for (let f of fib) {
+  console.log(f);
+}
+```
+
+Use `extends` to inherit from another class, which then can be accessed using `super`:
+
+```javascript
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+  circumference() {
+    return 2 * this.radius * Math.PI;
+  }
+  area() {
+    return this.radius ** 2 * Math.PI;
+  }
+}
+
+class Cylinder extends Circle {
+  constructor(radius, height) {
+    super(radius);
+    this.height = height;
+  }
+  volume() {
+    return super.area() * this.height;
+  }
+}
+
+let coin = new Circle(1.0);
+let cigarette = new Cylinder(0.5, 7.0);
+console.log(coin.circumference(), coin.area());
+console.log(cigarette.volume());
+```
