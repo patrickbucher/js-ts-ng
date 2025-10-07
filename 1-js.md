@@ -407,3 +407,8 @@ let cigarette = new Cylinder(0.5, 7.0);
 console.log(coin.circumference(), coin.area());
 console.log(cigarette.volume());
 ```
+
+## Bugs and Errors
+
+The argument passed to `throw new Error(argument);` is accessible through the `message` property of the caught exception. Extend the `Error` class for own exceptions and compare caught exceptions using `instanceof` against that custom class.
+

@@ -1,3 +1,7 @@
+# Day 7 (Tu, 2025-10-07)
+
+I read chapter 7 on Bugs and Errors, for which I took very few notes. I'd like to re-implement _Spot_ in JavaScript now.
+
 # Day 6 (Mo, 2025-10-06)
 
 I summarized chapter 6 on OOP, for which I took quite some notes.
