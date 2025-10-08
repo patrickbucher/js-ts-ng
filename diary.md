@@ -1,3 +1,7 @@
+# Day 8 (We, 2025-10-08)
+
+I worked through the first half of the chapter on regular expressions; that's all for today.
+
 # Day 7 (Tu, 2025-10-07)
 
 I read chapter 7 on Bugs and Errors, for which I took very few notes. I'd like to re-implement _Spot_ in JavaScript now.
