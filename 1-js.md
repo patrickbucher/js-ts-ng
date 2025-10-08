@@ -412,3 +412,60 @@ console.log(cigarette.volume());
 
 The argument passed to `throw new Error(argument);` is accessible through the `message` property of the caught exception. Extend the `Error` class for own exceptions and compare caught exceptions using `instanceof` against that custom class.
 
+## Regular Expressions
+
+Create regular expressions using a constructor or in between forward slash characters, the latter of which requires less escaping:
+
+```javascript
+let numbers = new RegExp("[0-9]");
+let letters = /[A-Za-z]/;
+```
+
+Use the `test` method to test for a match:
+
+    > let chessCoord = /[a-h][1-8]/
+    > chessCoord.test("b7")
+    true
+    > chessCoord.test("x9")
+    false
+
+Use the `u` suffix to unlock Unicode features:
+
+- `\p{L}`: any letter
+- `\p{N}`: any numeric character
+- `\p{P}`: any punctuation character
+- `\P{L}`: any non-letter (capital `P`)
+- `\p{Script=SCRIPT}`: any character from a script
+
+Example:
+
+    > /\w/.test('Достоевсвий')
+    false
+    > /\p{L}+/u.test('Достоевсвий')
+    true
+    > /\p{Script=Cyrillic}/u.test('Достоевсвий')
+    true
+
+Use the `i` suffix to ignore lower/upper case.
+
+Use `exec` to get hold of the resulting matches:
+
+    > /([a-h])([1-8])/.exec("h3")
+    [ "h3", "h", "3", index: 0, input: "h3", groups: undefined ]
+
+The first element contains the whole match, the further elements the matched groups.
+
+Use the `Date` constructor to create dates, and its `getTime` method to get a timestamp; use `Date.now()` to get the current timestamp:
+
+    > new Date(1234567890000);
+    2009-02-13T23:31:30.000Z 
+    > new Date(2022, 6, 15, 8, 25, 13)
+    2022-07-15T06:25:13.000Z
+    > new Date(1987, 6, 24)
+    1987-07-23T22:00:00.000Z
+    > new Date(1987, 6, 24).getTime()
+    554076000000
+    > Date.now()
+    1759938816573
+
+
