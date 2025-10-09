@@ -1,3 +1,7 @@
+# Day 9 (Th, 2025-10-09)
+
+Very little time today, I just managed to work through the section on look-ahead patterns.
+
 # Day 8 (We, 2025-10-08)
 
 I worked through the first half of the chapter on regular expressions; that's all for today.

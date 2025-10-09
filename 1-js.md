@@ -468,4 +468,15 @@ Use the `Date` constructor to create dates, and its `getTime` method to get a ti
     > Date.now()
     1759938816573
 
+Use look-ahead tests between `(?=` and `)` (positive) or `(?!` and `)` (negative) to match based on some input to follow:
 
+    > /e(?=u)/.test('eudaimonia')
+    true
+    > /e(?=u)/.test('endangered')
+    false
+    > /e(?!u)/.test('eudaimonia')
+    false
+    > /e(?!u)/.test('endangered')
+    true
+
+TODO: The replace Method p.151
