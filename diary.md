@@ -1,3 +1,7 @@
+# Day 10 (Fr, 2025-10-10)
+
+Little time again, so I just played with the powerful `replace` method and took some notes on it.
+
 # Day 9 (Th, 2025-10-09)
 
 Very little time today, I just managed to work through the section on look-ahead patterns.

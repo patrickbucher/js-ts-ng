@@ -479,4 +479,17 @@ Use look-ahead tests between `(?=` and `)` (positive) or `(?!` and `)` (negative
     > /e(?!u)/.test('endangered')
     true
 
-TODO: The replace Method p.151
+The `replace` method for strings supports regular expressions:
+
+    > 'damage'.replace(/[aeiou]/, '*')
+    "d*mage"
+    > 'damage'.replace(/[aeiou]/g, '*')
+    "d*m*g*"
+
+The second argument has direct access to the matched groups or can be a function:
+
+    > "John Doe".replace(/(\w+) (\w+)/, "$&: $2, $1")
+    "John Doe: Doe, John"
+    > "3 + 5 = 8".replace(/\d/g, (m) => parseInt(m) * 2)
+    "6 + 10 = 16"
+
